@@ -1,0 +1,2 @@
+# This S6 service does not do anything. It is used to signal the end of initializing OS-level services
+# to maintain a proper order of dependencies in child images.

@@ -6,18 +6,11 @@ PUID=${PUID:-911}
 PGID=${PUID:-911}
 
 # Modify the abc user ID and group ID.
-groupmod -o -g "$PGID" abc
-usermod -o -u "$PUID" abc
-
-# Send the branding to stdout.
-cat /etc/s6-overlay/s6-rc.d/init-adduser/branding
-
-# Send the container version and build date to stdout.
-cat /build_info
+groupmod -o -g "$PGID" abc >/dev/null
+usermod -o -u "$PUID" abc >/dev/null
 
 # Send the final abc user ID and group ID to stdout.
-echo "
--------------------------------------------
+echo "-------------------------------------------
 GID/UID
 -------------------------------------------
 User UID:    $(id -u abc)
